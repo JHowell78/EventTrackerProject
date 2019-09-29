@@ -14,7 +14,7 @@ AWS URL: http://52.14.71.152:8080/ConcertTracker/api/concerts/
 * [Search By Concert ID: ](http://52.14.71.152:8080/ConcertTracker/api/concerts/1)(/"concerts/{id}") GET
 * [Edit a Concert: ](http://52.14.71.152:8080/ConcertTracker/api/concerts/1)(/"concerts/{id}") PUT
 * [Delete a Concert: ](http://52.14.71.152:8080/ConcertTracker/api/concerts/1)(/"concerts/{id}") DELETE
-* [Create a New Concert: ](http://52.14.71.152:8080/ConcertTracker/api/concerts/1)(/"concerts") POST
+* [Create a New Concert: ](http://52.14.71.152:8080/ConcertTracker/api/concerts/)(/"concerts") POST
 
 ##### To create a new Concert event you will need to copy the fields into the body in Postman. I have provided the template below.
 
