@@ -1,25 +1,7 @@
--- MySQL Workbench Forward Engineering
+DROP SCHEMA IF EXISTS `concertdb2` ;
+CREATE SCHEMA IF NOT EXISTS `concertdb2` DEFAULT CHARACTER SET utf8 ;
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
--- -----------------------------------------------------
--- Schema concertdb
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `concertdb` ;
-
--- -----------------------------------------------------
--- Schema concertdb
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `concertdb` DEFAULT CHARACTER SET utf8 ;
-USE `concertdb` ;
-
--- -----------------------------------------------------
--- Table `concert`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `concert` ;
-
+use concertdb2;
 CREATE TABLE IF NOT EXISTS `concert` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `artist` VARCHAR(100) NULL,
@@ -31,22 +13,9 @@ CREATE TABLE IF NOT EXISTS `concert` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-SET SQL_MODE = '';
-DROP USER IF EXISTS concert@localhost;
-SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-CREATE USER 'concert'@'localhost' IDENTIFIED BY 'concert';
 
-GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'concert'@'localhost';
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- -----------------------------------------------------
--- Data for table `concert`
--- -----------------------------------------------------
 START TRANSACTION;
-USE `concertdb`;
+USE `concertdb2`;
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (1, 'Phish', 'E-Center', 'Camden', 'NJ', 'Jam Band', '07/03/2000');
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (2, 'Umphrey\'s McGee', 'Egyptian Room', 'Indianapolis', 'IN', 'Progressive Rock', '10/31/2003');
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (3, 'Metallica', 'Deer Creek', 'Noblesville', 'IN', 'Heavy Metal', '07/02/1994');
@@ -89,4 +58,3 @@ INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (40, 'Dave Matthews Band', 'Deer Creek', 'Noblesville', 'IN', 'Rock', '06/13/2005');
 
 COMMIT;
-

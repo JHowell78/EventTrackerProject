@@ -2,9 +2,134 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Concert Tracker</title>
+<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-<script src ="script.js"></script>
+	<h1>Welcome to Concert Tracker</h1>
+	<button name='allConcerts' id='allConcerts'>Show All Concerts</button>
+	<br>
+	<br>
+	<form name=concertFormId>
+		<button name="search" type="Submit">Search Concert by Id</button>
+		<input type="number" name="concertId">
+	</form>
+	
+	<br>
+	<div id="output">
+		<div id="concertData"></div>
+	</div>
+
+	<br>
+	<div id="addConcertDiv">
+		<form id="addConcert" name="addConcert">
+			<table>
+				<h3>Create Concert</h3>
+				<tr>
+					<td align="right">Artist:</td>
+					<td align="left"><input type="text" name="artist"
+						placeholder="Artist"></td>
+				</tr>
+				<tr>
+					<td align="right">Venue:</td>
+					<td align="left"><input type="text" name="venue"
+						placeholder="Venue"></td>
+				</tr>
+				<tr>
+					<td align="right">City:</td>
+					<td align="left"><input type="text" name="city"
+						placeholder="City"></td>
+				</tr>
+				<tr>
+					<td align="right">State:</td>
+					<td align="left"><input type="text" name="state"
+						placeholder="State"></td>
+				</tr>
+				<tr>
+					<td align="right">Genre:</td>
+					<td align="left"><input type="text" name="genre"
+						placeholder="Genre"></td>
+				</tr>
+				<tr>
+					<td align="right">Date:</td>
+					<td align="left"><input type="text" name="date"
+						placeholder="Date"></td>
+				</tr>
+				<tr>
+					<td>
+						<button name="create" type="Submit">Create Concert</button>
+					</td>
+				</tr>
+				<!-- <input type="text" name="artist" placeholder="Artist"> <br>
+		<input type="text" name="venue" placeholder="Venue"> <br>
+		<input type="text" name="city" placeholder="City"> <br> <input
+			type="text" name="state" placeholder="State"><br> <input
+			type="text" name="genre" placeholder="Genre"><br> <input
+			type="text" name="date" placeholder="Date"> <br>
+
+		<button name="create" type="Submit">Create Concert</button> -->
+			</table>
+		</form>
+	</div>
+	<br>
+	<!-- <div id="output">
+		<div id="concertForm">
+			<button onclick="editForm()">Edit Concert</button>
+		</div>
+	</div> -->
+
+	<hr>
+	<div id="editConcertDiv">
+		<form id="editForm" name="editForm">
+			<table>
+				<h3>Edit Current Concert</h3>
+				<tr>
+					<td align="right">Artist:</td>
+					<td align="left"><input type="text" name="artist"
+						placeholder="Artist"></td>
+				</tr>
+				<tr>
+					<td align="right">Venue:</td>
+					<td align="left"><input type="text" name="venue"
+						placeholder="Venue"></td>
+				</tr>
+				<tr>
+					<td align="right">City:</td>
+					<td align="left"><input type="text" name="city"
+						placeholder="City"></td>
+				</tr>
+				<tr>
+					<td align="right">State:</td>
+					<td align="left"><input type="text" name="state"
+						placeholder="State"></td>
+				</tr>
+				<tr>
+					<td align="right">Genre:</td>
+					<td align="left"><input type="text" name="genre"
+						placeholder="Genre"></td>
+				</tr>
+				<tr>
+					<td align="right">Date:</td>
+					<td align="left"><input type="text" name="date"
+						placeholder="Date"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" id='editConcert' name="submit"
+						value="Update" /> <input type="hidden" name="concertId" /></td>
+				</tr>
+
+				<!-- 			onclick="submit_form();" onclick="showConcert(concert)"
+ -->
+				<!-- <br> Venue: <input type="text" name="venue" placeholder="Venue"><br>
+			City: <input type="text" name="city" placeholder="City"><br>
+			State: <input type="text" name="state" placeholder="State"><br>
+			Genre: <input type="text" name="genre" placeholder="Genre"><br>
+			Date: <input type="text" name="date" placeholder="Date"><br> <input
+				type="submit" id='editConcert' name="submit" value="Update" onclick="submit_form();" /> <input
+				type="hidden" name="concertId" /> -->
+
+			</table>
+		</form>
+	</div>
 </body>
 </html>

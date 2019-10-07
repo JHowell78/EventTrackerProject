@@ -10,5 +10,9 @@ public interface ConcertRepository extends JpaRepository<Concert, Integer> {
 
 	List<Concert> findByArtistLikeOrGenreLikeOrStateLike(String keyword, String keyword2, String keyword3);
 	List<Concert> findByDateContaining(String year);
-
+	List<Concert> findByArtistLike(String keyword);
+	List<Concert> findByGenreLike(String keyword);
+	List<Concert> findByStateLike(String keyword);
+	
+	
 }

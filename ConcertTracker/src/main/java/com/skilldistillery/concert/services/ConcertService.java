@@ -16,6 +16,9 @@ public interface ConcertService {
 	Boolean delete(int id);
 
 	List<Concert> findByKeyword(String keyword);
-	
 	List<Concert> findByYear(String year);
+	List<Concert> findByArtist(String keyword);
+	List<Concert> findByGenre(String keyword);
+	List<Concert> findByState(String keyword);
+	
 }

@@ -52,6 +52,21 @@ public class ConcertController {
 		List<Concert> concert = svc.findByYear(year);
 		return concert;
 	}
+	@GetMapping("concerts/search/artist/{artist}")
+	public List<Concert> searchArtist(@PathVariable("artist") String artist, HttpServletResponse resp) {
+		List<Concert> concert = svc.findByArtist(artist);
+		return concert;
+	}
+	@GetMapping("concerts/search/genre/{genre}")
+	public List<Concert> searchGenre(@PathVariable("genre") String genre, HttpServletResponse resp) {
+		List<Concert> concert = svc.findByGenre(genre);
+		return concert;
+	}
+	@GetMapping("concerts/search/state/{state}")
+	public List<Concert> searchState(@PathVariable("state") String state, HttpServletResponse resp) {
+		List<Concert> concert = svc.findByState(state);
+		return concert;
+	}
 
 	@PostMapping("concerts")
 	public Concert addConcert(@RequestBody Concert concert, HttpServletResponse resp, HttpServletRequest req) {

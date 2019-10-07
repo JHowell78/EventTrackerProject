@@ -72,4 +72,22 @@ public class ConcertServiceImpl implements ConcertService {
 		return repo.findByDateContaining(year);
 	}
 
+	@Override
+	public List<Concert> findByArtist(String keyword) {
+		keyword = "%" + keyword + "%";
+		return repo.findByArtistLike(keyword);
+	}
+
+	@Override
+	public List<Concert> findByGenre(String keyword) {
+		keyword = "%" + keyword + "%";
+		return repo.findByGenreLike(keyword);
+	}
+
+	@Override
+	public List<Concert> findByState(String keyword) {
+		keyword = "%" + keyword + "%";
+		return repo.findByStateLike(keyword);
+	}
+
 }

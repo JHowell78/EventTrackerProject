@@ -5,15 +5,15 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema concertdb
+-- Schema concertdb2
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `concertdb` ;
+-- DROP SCHEMA IF EXISTS `concertdb2` ;
 
 -- -----------------------------------------------------
--- Schema concertdb
+-- Schema concertdb2
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `concertdb` DEFAULT CHARACTER SET utf8 ;
-USE `concertdb` ;
+CREATE SCHEMA IF NOT EXISTS `concertdb2` DEFAULT CHARACTER SET utf8 ;
+USE `concertdb2` ;
 
 -- -----------------------------------------------------
 -- Table `concert`
@@ -46,7 +46,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Data for table `concert`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `concertdb`;
+USE `concertdb2`;
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (1, 'Phish', 'E-Center', 'Camden', 'NJ', 'Jam Band', '07/03/2000');
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (2, 'Umphrey\'s McGee', 'Egyptian Room', 'Indianapolis', 'IN', 'Progressive Rock', '10/31/2003');
 INSERT INTO `concert` (`id`, `artist`, `venue`, `city`, `state`, `genre`, `date`) VALUES (3, 'Metallica', 'Deer Creek', 'Noblesville', 'IN', 'Heavy Metal', '07/02/1994');
