@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skilldistillery.concert.entities.Concert;
 import com.skilldistillery.concert.services.ConcertService;
 
-@RequestMapping("api")
 @RestController
+@CrossOrigin({ "*", "http://localhost:4203" })
+@RequestMapping("api")
 public class ConcertController {
 	@Autowired
 	private ConcertService svc;
@@ -28,7 +30,8 @@ public class ConcertController {
 	public String ping() {
 		return "pong";
 	}
-
+//Count for aggregate
+	
 	@GetMapping("concerts")
 	public List<Concert> concertList(HttpServletResponse resp) {
 		List<Concert> concert = svc.findAll();

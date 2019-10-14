@@ -1,0 +1,255 @@
+
+<div id="listAllConcerts" *ngIf="!selected">
+  <h1 class="text-light-lg mt-2">
+      <button type="button" class="btn btn-info btn-lg btn-block text-left mt-2"><strong>{{ title }}</strong><span class="badge badge-pill badge-warning float-right m-2"
+        >{{ getConcertCount() }} Concerts
+      </span></button>
+
+    <!-- <span class="badge badge-pill badge-primary">{{ title }}</span>
+      <span class="badge badge-pill badge-success float-right m-2"
+        >{{ getConcertCount() }} Concerts
+      </span> -->
+  </h1>
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th align="left">#</th>
+        <th align="left">Artist</th>
+        <th align="left">Venue</th>
+        <th align="left">City</th>
+        <th align="left">State</th>
+        <th align="left">Genre</th>
+        <th align="left">Date</th>
+        <!-- <th align="float-right">Options</th> -->
+        <th align="left"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let concert of concerts">
+      <!-- <tr *ngFor="let concert of concerts" (click)="displayConcert(concert)"> -->
+        <td>{{ concert.id }}</td>
+        <td>
+          {{ concert.artist }}
+        </td>
+        <td>
+          {{ concert.venue }}
+        </td>
+        <td>
+          {{ concert.city }}
+        </td>
+        <td>
+          {{ concert.state }}
+        </td>
+        <td>
+          {{ concert.genre }}
+        </td>
+        <td>
+          {{ concert.date }}
+        </td>
+        <td>
+          <div class="btn-group float-right " role="group">
+            <!-- <button (click)="displayConcert(concert)" class="btn btn-primary">
+              Details
+            </button> -->
+            <button (click)="displayConcert(concert)"
+                          type="button"
+              class="btn btn-success"
+            >
+              More
+            </button>
+            <button
+              (click)="deleteConcert(concert.id)"
+              type="button"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div id="editConcert" *ngIf="editConcert">
+    <form>
+      <input
+        type="text"
+        name="artist"
+        [(ngModel)]="editConcert.artist"
+        placeholder="Artist"
+      />
+      <br />
+      <input
+        type="text"
+        name="venue"
+        [(ngModel)]="editConcert.venue"
+        placeholder="Venue"
+      />
+      <br />
+      <input
+        type="text"
+        name="city"
+        [(ngModel)]="editConcert.city"
+        placeholder="City"
+      />
+      <br />
+      <input
+        type="text"
+        name="state"
+        [(ngModel)]="editConcert.state"
+        placeholder="State"
+      />
+      <br />
+      <input
+        type="text"
+        name="genre"
+        [(ngModel)]="editConcert.genre"
+        placeholder="Genre"
+      /><br />
+      <input
+        type="text"
+        name="date"
+        [(ngModel)]="editConcert.date"
+        placeholder="Date"
+      /> <br>
+      <!-- <div class="btn-group" role="group">
+          <button class="btn btn-primary" [routerLink]="['/concerts']">Home</button>
+          <button
+          (click)="editConcert = selected"
+          type="button"
+            class="btn btn-success"
+          >
+            Edit
+          </button>
+          <button class="btn btn-warning" (click)="updateConcert(editConcert)">
+              Update
+          </button>
+          <button
+            class="btn btn-info" (click)="setNewConcert()">Add
+          </button>
+          <button
+            (click)="deleteConcert(selected.id)"
+            type="button"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+        </div> -->
+    </form>
+  </div>
+  <div id="displayOneConcert" *ngIf="selected">
+      Id: {{ selected.id }} <br />
+      Artist: {{ selected.artist }} <br />
+      Venue: {{ selected.venue }} <br />
+      City: {{ selected.city }} <br />
+      State: {{ selected.state }} <br />
+      Date: {{ selected.date }} <br />
+      Genre: {{ selected.genre }} <br />
+      <br />
+      <div class="btn-group" role="group">
+          <button class="btn btn-primary" (click)="displayTable()">Home</button>
+          <button
+          (click)="editConcert = selected"
+          type="button"
+            class="btn btn-success"
+          >
+            Edit
+          </button>
+          <button class="btn btn-warning" (click)="updateConcert(editConcert)">
+              Update
+          </button>
+          <button
+            (click)="deleteConcert(selected.id)"
+            type="button"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+          <!-- <button (click)="newConcert = selected">Add</button> -->
+        </div>
+        <br>
+        <br>
+    </div>
+    <div id="newConcert" *ngIf="selected">
+      <h3>Add a Concert</h3>
+        <form>
+          <input
+            type="text"
+            name="artist"
+            [(ngModel)]="newConcert.artist"
+            placeholder="Artist"
+          />
+          <br />
+          <input
+            type="text"
+            name="venue"
+            [(ngModel)]="newConcert.venue"
+            placeholder="Venue"
+          />
+          <br />
+          <input
+            type="text"
+            name="city"
+            [(ngModel)]="newConcert.city"
+            placeholder="City"
+          />
+          <br />
+          <input
+            type="text"
+            name="state"
+            [(ngModel)]="newConcert.state"
+            placeholder="State"
+          />
+          <br />
+          <input
+            type="text"
+            name="genre"
+            [(ngModel)]="newConcert.genre"
+            placeholder="Genre"
+          /><br />
+          <input
+            type="text"
+            name="date"
+            [(ngModel)]="newConcert.date"
+            placeholder="Date"
+          />
+           <br>
+        <div class="btn-group" role="group">
+            <button class="btn btn-primary" (click)="displayTable()">Home</button>
+            <!-- <button
+            (click)="editConcert = selected"
+            type="button"
+              class="btn btn-success"
+            >
+              Edit
+            </button>
+            <button class="btn btn-warning" (click)="updateConcert(editConcert)">
+                Update
+            </button> -->
+            <button
+              class="btn btn-info" (click)="addNewConcert()">Add Concert
+            </button>
+            <button
+              (click)="deleteConcert(selected.id)"
+              type="button"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+          </div>
+          </form>
+    </div>
+
+
+
+<!-- </div> -->
+<!-- <div *ngIf="updateConcert(selected)">
+  <p>{{ selected.id }}</p>
+  <p>Artist: {{ selected.artist }}</p>
+  <p>Venue: {{ selected.venue }}</p>
+  <p>City: {{ selected.city }}</p>
+  <p>Date: {{ selected.date }}</p>
+  <p>Genre: {{ selected.genre }}</p>
+  <button (click)="reload()">Back</button>
+  <button (click)="setEditConcert()">Edit</button>
+</div> -->
