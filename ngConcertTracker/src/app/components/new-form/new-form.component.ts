@@ -18,7 +18,7 @@ export class NewFormComponent implements OnInit {
   addNewConcert() {
     this.concertService.create(this.newConcert).subscribe(
       data => {
-        this.reload();
+        // this.reload();
       },
       err => console.error('Observer got an error: ' + err)
     );
@@ -39,7 +39,7 @@ export class NewFormComponent implements OnInit {
   deleteConcert(id: number) {
     this.concertService.delete(id).subscribe(
       data => {
-        this.reload();
+        // this.reload();
       },
       err => console.error('Observer got an error: ' + err)
     );
