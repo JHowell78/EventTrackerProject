@@ -23,8 +23,7 @@ public class Concert {
 
 	private String date;
 
-	public Concert() {
-	}
+	public Concert() {}
 
 	public Concert(int id, String artist, String venue, String city, String state, String genre, String date) {
 		super();
