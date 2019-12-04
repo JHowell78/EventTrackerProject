@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/josheapg/test.joshhowell.dev/
+    - /bin/cp -r * $DEPLOYPATH
