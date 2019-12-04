@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/josheapg/test.joshhowell.dev/
+    - export DEPLOYPATH=/home/josheapg/public_html/event/
     - /bin/cp -r * $DEPLOYPATH
